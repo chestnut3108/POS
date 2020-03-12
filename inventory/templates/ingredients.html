@@ -1,4 +1,8 @@
+{% include "base.html" %}
 {% load render_table from django_tables2 %}
+
+
+
 <!doctype html>
 <html>
 <head>
@@ -9,10 +13,13 @@
 </head>
 <body>
     <div class="ui container">
-        {% block body %}
-        <h3>Ingredients</h3>
+    
+        <form action="/inventory/save" method="post">
+        {% csrf_token %}
         {% render_table table %}
-        {% endblock %}
+        <input type="submit"/>
+        </form>
+    
     </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ import django_tables2 as tables
 from .models import Ingredients
 
 class IngredientTable(tables.Table):
+    selection = tables.CheckBoxColumn(accessor='pk')
     class Meta:
         model = Ingredients
         template_name = "django_tables2/semantic.html"
