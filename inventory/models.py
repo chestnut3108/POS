@@ -1,6 +1,6 @@
 from django.db import models
 
-Ingredients_choices = (("s","sauces"), ("f","frozen"))
+Ingredients_choices = (("s","liquids"), ("f","frozen"))
 # Create your models here.
 class Ingredients(models.Model):
     product_name = models.CharField(max_length=200)

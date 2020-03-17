@@ -9,8 +9,8 @@ from .tables import IngredientTable
 from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
-
-
+import logging
+logger = logging.getLogger(__name__)
 # Create your views here.
 
 class IngredientList(viewsets.ModelViewSet):
@@ -29,3 +29,8 @@ def InventoryListView(request):
     RequestConfig(request, paginate={"per_page": 10}).configure(table)
 
     return render(request, "ingredients.html", {"table": table},RequestContext(request))
+
+
+def contact(request):
+    context = {}
+    return render(request, 'contactasdasd.html', context)
