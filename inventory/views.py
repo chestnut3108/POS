@@ -33,4 +33,4 @@ def InventoryListView(request):
 
 def contact(request):
     context = {}
-    return render(request, 'contactasdasd.html', context)
+    return render(request, 'contact.html', context)
