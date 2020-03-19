@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from rest_framework import viewsets,generics
 from .models import Ingredients
 from .serializer import IngredientsSerializers
@@ -10,6 +10,7 @@ from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, Sin
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 import logging
+from .forms import PostForm
 logger = logging.getLogger(__name__)
 # Create your views here.
 
@@ -34,3 +35,14 @@ def InventoryListView(request):
 def contact(request):
     context = {}
     return render(request, 'contact.html', context)
+
+def inventory_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('inventory', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'inventory_edit.html', {'form': form})

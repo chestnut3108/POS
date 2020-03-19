@@ -9,6 +9,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
 </head>
 <body>
+<div >
+            <a href="{% url 'inventory_new' %}" ><button type="button" class="btn btn-default" aria-label="Left Align">Add Item</button></a>
+            <h1><a href="/">Django Girls Blog</a></h1>
+</div>
     <div class="ui container">
         {% block body %}
         {% render_table table %}
